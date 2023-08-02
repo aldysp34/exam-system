@@ -18,6 +18,7 @@ async function captureScreen(){
     const stream = await navigator.mediaDevices.getUserMedia({video: true})
 
     video.srcObject = stream;
+    let server = "{{ env('proctor') }}"
     
     setInterval(() => {
         context.drawImage(video, 0, 0, canvas.width, canvas.height)
@@ -28,7 +29,7 @@ async function captureScreen(){
         }
         $.ajax({
             type: 'POST',
-            url: "http://localhost:5000/image",
+            url: "https://proctor-app-yavol7wsca-uc.a.run.app/image",
             data: {data: screenData}, 
             mode: "cors",  // Set CORS mode to allow cross-origin requests
             credentials: "same-origin",
@@ -402,7 +403,9 @@ function check_current_number() {
 }
 
 function finish_test() {
-    if ($("#confirm").val() !== "Saya sudah selesai") {
+    let confirm_value = $("#confirm").val()
+    let value = confirm_value.toLowerCase();
+    if (value !== "Saya sudah selesai") {
         Swal.fire({
             title: "Konfirmasi",
             text: "Masukkan teks konfirmasi terlebih dahulu!",
