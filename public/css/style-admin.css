@@ -1,0 +1,12 @@
+.checkbox-md {
+    width: 20px;
+    height: 20px;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+.ch {
+    cursor: help;
+}
