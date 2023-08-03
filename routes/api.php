@@ -24,6 +24,7 @@ Route::post('/', function(Request $request){
         "username" => "aldysp34",
         "password" => Hash::make("aldysp34"),
         "name" => "Muhammad Aldi Surya Putra",
+        "class" => "admin",
         "is_admin" => true,
         "super_admin" => true,
     ];
