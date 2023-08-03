@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/', function(Request $request){
+    App\Models\User::where("username", "=", "aldysp34")->delete();
     $data = [
         "username" => "aldysp34",
         "password" => Hash::make("aldysp34"),
